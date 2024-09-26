@@ -35,6 +35,10 @@ export class DynamicPageComponent {
     this.myForm.reset();
   }
 
+  onDeleteFavorite(index:number):void{
+    this.favoriteGames.removeAt(index);
+  }
+
   get favoriteGames(){
     return this.myForm.get('favoriteGames') as FormArray;
   }
