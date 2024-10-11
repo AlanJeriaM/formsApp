@@ -23,8 +23,13 @@ export class RegisterPageComponent {
       email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)], [ new EmailValidator() ] ],
       username: ['', [Validators.required, this.validatorService.canBeStrider]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      password2: ['',[Validators.required]]
-    });
+      password2: ['',[Validators.required]],
+    }, {
+      validators: [
+        this.validatorService.camposIguales('password','password2')
+      ]
+    }
+  )
   }
 
   onSubmit(){
